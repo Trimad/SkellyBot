@@ -1,3 +1,7 @@
 {
-    "!quiz": ""
+    "!help": "!help",
+    "!nuke": "Nuke 100 messages",
+    "!ping": "Returns pong.",
+    "!quiz": "Launches the quiz menu.",
+    "!state": "Returns the raw state in JSON format for debugging purposes."
 }

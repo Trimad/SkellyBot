@@ -1,9 +1,13 @@
-class Quiz {
+function start(msg, quizes, state) {
 
-    constructor() { }
+    let section = quizes[state.quiz][state.chapter][state.section];
+    //console.log(section);
 
-    static Start() { }
-    
+
+    section.forEach(element => {
+        msg.reply(JSON.stringify(element));
+
+    });
 }
 
-module.exports = Quiz;
+exports.start = start;

@@ -1,29 +1,31 @@
+const dotenv = require('dotenv').config();
 const fs = require('fs');
 const Discord = require('discord.js');
 
-
 const client = new Discord.Client();
-const CONFIG = JSON.parse(fs.readFileSync('config.json'));
-client.login(CONFIG.discord.privateKey);
+const privateKey = process.env.PRIVATE_KEY;
+client.login(privateKey);
 
 const QuizMenu = require(__dirname + "/quizMenu.js");
+var QuizMenuData = JSON.parse(fs.readFileSync('quizMenu.json'));
+
 const Quiz = require(__dirname + "/quiz.js");
+
+var helpMenu = JSON.parse(fs.readFileSync('helpMenu.json'));
+
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 var state = {
-  quiz: 0,
+  quiz: 2,
   chapter: 0,
   section: "1.1",
   card: 0,
   data: [],
   color: ""
 };
-
-var helpMenu = JSON.parse(fs.readFileSync('helpMenu.json'));
-var quizMenu = JSON.parse(fs.readFileSync('quizMenu.json'));
 
 
 var quizes = new Array();
@@ -48,17 +50,23 @@ client.on('message', msg => {
       msg.reply(output);
       break;
     case "!quiz":
-      QuizMenu.QuizSelector(msg, quizMenu, state);
-      Quiz.Start();
+      //QuizMenu.quizSelector(msg, QuizMenuData, state);
+      Quiz.start(msg, quizes, state);
       break;
     case "!ping":
       msg.reply('Pong!');
       break;
-
-      case "!state":
-        msg.reply(JSON.stringify(state));
-        break;
-  
+    case "!state":
+      msg.reply(JSON.stringify(state));
+      break;
+    case "!nuke":
+      async function nuke() {
+        msg.channel.bulkDelete(100).then(() => {
+          msg.channel.send("Deleted 100 messages.").then(m => m.delete(3000));
+        });
+      }
+      nuke();
+      break
     default:
     // code block
   }
