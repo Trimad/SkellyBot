@@ -40,34 +40,53 @@ quizes[2][2] = JSON.parse(fs.readFileSync('Network+/3-network-operations.json'))
 quizes[2][3] = JSON.parse(fs.readFileSync('Network+/4-network-security.json'));
 quizes[2][4] = JSON.parse(fs.readFileSync('Network+/5-network-troubleshooting-and-tools.json'));
 
-client.on('message', msg => {
+client.on('message', async message => {
   let output;
-  switch (msg.content.toLocaleLowerCase()) {
 
-    case "!help":
-      output = "Here is a list of all available commands:\n";
-      for (m in helpMenu) { output += (m + "\n") }
-      msg.reply(output);
-      break;
-    case "!quiz":
-      //QuizMenu.quizSelector(msg, QuizMenuData, state);
-      Quiz.start(msg, quizes, state);
-      break;
-    case "!ping":
-      msg.reply('Pong!');
-      break;
-    case "!state":
-      msg.reply(JSON.stringify(state));
-      break;
-    case "!nuke":
-      async function nuke() {
-        msg.channel.bulkDelete(100).then(() => {
-          msg.channel.send("Deleted 100 messages.").then(m => m.delete(3000));
-        });
-      }
-      nuke();
-      break
-    default:
-    // code block
+
+  if (message.author.bot) return;
+  else if (message.content.toLowerCase().startsWith("!quiz")) {
+    QuizMenu.start(message, QuizMenuData, state).then(() => {
+      Quiz.start(message, quizes, state);
+    });
+
   }
+  else if (message.content.toLowerCase().startsWith("!help")) {
+    output = "Here is a list of all available commands:\n";
+    for (m in helpMenu) { output += (m + "\n") }
+    message.reply(output);
+  }
+  else if (message.content.toLowerCase().startsWith("!nuke")) {
+    async function nuke() {
+      message.channel.bulkDelete(100).then(() => {
+        message.channel.send("I just deleted 100 fucking messages, bitch.").then(m => m.delete({ timeout: 5000 }));
+      });
+    }
+    nuke();
+  }
+
+  // switch (message.content.toLocaleLowerCase()) {
+
+
+  //   case "!help":
+
+  //   case "!quiz":
+
+  //     //QuizMenu.quizSelector(msg, QuizMenuData, state);
+
+  //     //QuizMenu.quizSelector(msg, QuizMenuData, state);
+  //     //      promise.then(Quiz.start(msg, quizes, state));
+  //     break;
+  //   case "!ping":
+  //     message.reply('Pong!');
+  //     break;
+  //   case "!state":
+  //     message.reply(JSON.stringify(state));
+  //     break;
+  //   case "!nuke":
+
+  //     break
+  //   default:
+  //   // code block
+  // }
 });

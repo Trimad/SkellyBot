@@ -7,7 +7,8 @@
                 "TCP Port 22",
                 "Encrypted communication link",
                 "A secure replacement to Telnet"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "DNS",
@@ -15,7 +16,8 @@
                 "Domain Name Service/Domain Name Server/Domain Name System",
                 "UDP Port 53",
                 "Maps domain names to various types of data, such as IP addresses."
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "SMTP",
@@ -24,7 +26,8 @@
                 "TCP Port 25",
                 "Server-to-server email transfer",
                 "Commonly configured on mobile devices and email clients"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "SFTP",
@@ -41,17 +44,19 @@
                 "TCP Port 20 for \"active mode\" data transfer",
                 "TCP Port 21 for \"control\"",
                 "Authenticates with a username and password"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "TFTP",
             "A": [
                 "Trivial File Transfer Protocol",
                 "UDP Port 69",
-				"Provides no security features",
+                "Provides no security features",
                 "No authentication, no encryption",
                 "A very basic form of file sharing protocol"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "TELNET",
@@ -60,8 +65,9 @@
                 "TCP Port 23",
                 "Transmits data in an unencrypted form \"in-the-clear communication\"",
                 "Provides username and password authentication",
-				"Enables remote login and command execution"
-            ]
+                "Enables remote login and command execution"
+            ],
+            "correct": "A"
         },
         {
             "Q": "DHCP",
@@ -70,7 +76,8 @@
                 "UPD Port 67 and UDP Port 68",
                 "Requires a DHCP server on your network",
                 "IP addresses are assigned in real-time from a pool of available IP addresses"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "HTTP",
@@ -78,7 +85,8 @@
                 "Hypertext Transfer Protocol",
                 "TCP Port 80",
                 "Web server communication \"in the clear\""
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "HTTPS",
@@ -86,7 +94,8 @@
                 "Hypertext Transfer Protocol Secure",
                 "TCP Port 443",
                 "Secures web traffic via SSL/TLS encryption"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "SNMP",
@@ -94,7 +103,8 @@
                 "Simple Network Management Protocol",
                 "UDP Port 161",
                 "Gathers statistics from network attached devices"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "RDP",
@@ -102,7 +112,8 @@
                 "Remote Desktop Protocol",
                 "TCP Port 3389",
                 "Can connect to an entire desktop or just an application"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "NTP",
@@ -111,7 +122,8 @@
                 "UDP Port 123",
                 "Synchronizes clocks across all network devices",
                 "Very accurate, better than 1 millisecond on a local network"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "SIP",
@@ -120,16 +132,18 @@
                 "TCP Port 5060 and TCP 5061",
                 "Call, ring and hang up for VoIP",
                 "Supports video conferencing, instant messaging and file transfer"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "SMB/CIFS",
             "A": [
                 "Server Message Block/Common Internet File System",
                 "TCP Port 445",
-				"Provides shared access to files, directories, and devices",
+                "Provides shared access to files, directories, and devices",
                 "Used mainly by computers running Microsoft Windows operating systems"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "POP3",
@@ -138,7 +152,8 @@
                 "TCP Port 110",
                 "Basic mail transfer functionality",
                 "Email retrieval"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "IMAP4",
@@ -148,7 +163,8 @@
                 "Serves the same purpose of POP but provides improved functionality",
                 "Includes management of email inbox from multiple devices.",
                 "Typically used more often than POP3"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "LDAP",
@@ -156,7 +172,8 @@
                 "Lightweight Directory Access Protocol",
                 "TCP Port 389",
                 "Store and retrieve information in a network directory"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "LDAPS",
@@ -164,7 +181,8 @@
                 "Lightweight Directory Access Protocol Secure",
                 "TCP Port 636",
                 "SSL/TLS-based directory access protocol"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "H.323",
@@ -172,41 +190,47 @@
                 "VoIP signaling",
                 "TCP Port 1720",
                 "setup and manage VoIP sessions; call, ring, hang up"
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "ICMP",
             "A": [
                 "Internet Control Message Protocol",
                 "A protocol used by routers, hosts and network devices to generate error messages and troubleshoot problems with delivery of IP packets."
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "UDP",
             "A": [
                 "User Datagram Protocol",
                 "UDP is an example of a connectionless protocol. Because UDP doesn't support three-way handshake while establishing a network connection, it is referred to as unreliable or best-effort protocol."
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "TCP",
             "A": [
                 "Transmission Control Protocol",
                 "TCP is an example of a connection-oriented protocol using a three-way handshake which is a set of initial steps required for establishing network connection. TCP supports retransmission of lost packets, flow control (managing the amount of data that is being sent), and sequencing (rearranging packets that arrived out of order)."
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "IP",
             "A": [
                 "Internet Protocol",
                 "A network layer protocol that specifies the format of packets and addressing scheme in network communications."
-            ]
+            ],
+            "correct": "A"
         },
         {
             "Q": "\"Connection-oriented vs. connectionless\"",
             "A": [
                 "UDP vs TCP"
-            ]
+            ],
+            "correct": "A"
         }
     ],
     "1.2": [

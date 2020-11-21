@@ -1,3 +1,51 @@
+async function start(message, quizMenu, state) {
+
+  var data = [
+    "Type the integer that corresponds to the quiz you would like to take!",
+    "Type the integer that corresponds to the chapter you would like to study!",
+    "Type the integer that corresponds to the section you would like to study!"
+  ];
+
+  for await (const element of data) {
+
+    const menuEmbed = {
+      color: 0x0099ff,
+      title: 'SkellyBot Quiz',
+      description: element,
+      thumbnail: {
+        url: 'https://i.kym-cdn.com/entries/icons/original/000/017/613/1426467217270.jpg',
+      },
+      fields: [],
+
+    };
+
+    const quizFields = quizMenu.fields;
+    quizFields.forEach(function (field) {
+      menuEmbed.fields.push(field);
+    });
+
+    message.channel.send({ embed: menuEmbed });
+
+    const filter = m => m.author.id === message.author.id;
+    const answer = await message.channel.awaitMessages(filter, { max: 1, time: 10000, errors: ['time'] });
+    const ans = answer.first().content;
+    console.log(ans);
+    if (ans) {
+
+      message.channel.send("You selected: " + ans);
+    }
+
+  }
+
+}
+
+exports.start = start;
+
+
+
+
+
+
 function quizSelector(msg, quizMenu, state) {
   const menuEmbed = {
     color: 0x0099ff,
