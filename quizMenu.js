@@ -1,7 +1,6 @@
 async function start(message, quizMenu, state) {
 
   var data = [
-    "Type the integer that corresponds to the quiz you would like to take!",
     "Type the integer that corresponds to the chapter you would like to study!",
     "Type the integer that corresponds to the section you would like to study!"
   ];
@@ -39,6 +38,14 @@ async function start(message, quizMenu, state) {
 
 }
 
+
+// function start(message, quizMenu, state) {
+//   quizSelector(message, quizMenu, state).then(() => {
+//     chapterSelector(message, quizMenu, state).then(() => {
+//       sectionSelector(message, quizMenu, state);
+//     });
+//   });
+// }
 exports.start = start;
 
 
@@ -46,7 +53,7 @@ exports.start = start;
 
 
 
-function quizSelector(msg, quizMenu, state) {
+async function quizSelector(msg, quizMenu, state) {
   const menuEmbed = {
     color: 0x0099ff,
     title: 'SkellyBot Quiz',
@@ -80,7 +87,7 @@ function quizSelector(msg, quizMenu, state) {
   });
 }
 
-function chapterSelector(msg, quizMenu, state) {
+async function chapterSelector(msg, quizMenu, state) {
   const menuEmbed = {
     color: 0x0099ff,
     title: 'SkellyBot Quiz',
@@ -113,7 +120,7 @@ function chapterSelector(msg, quizMenu, state) {
   });
 }
 
-function sectionSelector(msg, quizMenu, state) {
+async function sectionSelector(msg, quizMenu, state) {
 
   const menuEmbed = {
     color: 0x0099ff,

@@ -1,7 +1,29 @@
 {
-    "!help": "!help",
-    "!nuke": "Nuke 100 messages",
-    "!ping": "Returns pong.",
-    "!quiz": "Launches the quiz menu.",
-    "!state": "Returns the raw state in JSON format for debugging purposes."
+    "fields": [
+        {
+            "name": "!help",
+            "value": "You're looking at it.",
+            "inline": false
+        },
+        {
+            "name": "!network+",
+            "value": "Launches the test module for the CompTIA Network+ certification",
+            "inline": false
+        },
+        {
+            "name": "!nuke",
+            "value": "Nukes the last 100 messages.",
+            "inline": false
+        },
+        {
+            "name": "!ping",
+            "value": "Returns pong.",
+            "inline": false
+        },
+        {
+            "name": "!zalgo",
+            "value": "s̋ͪ̓ ҉̨̡̗u̒͑̂ ҉͝ ҉̷͟͞m̔̏͂mͧ̆ͪ ҉̨̧͜ö͊̑ ҉͡ ҉͎̬͈ńͫ̂ ̿̌̑ ҉̛̕ ҉̸͜͠t͆͒̓ ҉̵̶̡ ҉ ҉̤̤̝h̿͑ͦ ҉̸̢͜e̊͌̾ ҉̛͈͝ ́͗ͮ ҉̧́͟d̀ͦͪa͑ͪͬ ҉̯̳̕r͆̎̍ ҉̵̕͜kͮ͒̒ ҉̤́͞ ͛͂̉ ҉̨̡̀l͂ͮ̋o͛̔̚ ҉͢͟͟rͣͤ͌ ҉̪͖̝dͬ͗̈",
+            "inline": false
+        }
+    ]
 }

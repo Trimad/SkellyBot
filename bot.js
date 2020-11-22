@@ -1,32 +1,26 @@
 const dotenv = require('dotenv').config();
 const fs = require('fs');
 const Discord = require('discord.js');
-
 const client = new Discord.Client();
 const privateKey = process.env.PRIVATE_KEY;
-client.login(privateKey);
-
 const QuizMenu = require(__dirname + "/quizMenu.js");
-var QuizMenuData = JSON.parse(fs.readFileSync('quizMenu.json'));
-
+const QuizMenuData = JSON.parse(fs.readFileSync('quizMenu.json'));
 const Quiz = require(__dirname + "/quiz.js");
-
-var helpMenu = JSON.parse(fs.readFileSync('helpMenu.json'));
-
+const helpMenu = JSON.parse(fs.readFileSync('helpMenu.json'));
+const Zalgo = require(__dirname + "/zalgo.js");
+client.login(privateKey);
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 var state = {
-  quiz: 2,
   chapter: 0,
   section: "1.1",
   card: 0,
   data: [],
   color: ""
 };
-
 
 var quizes = new Array();
 quizes[0] = [];
@@ -41,21 +35,40 @@ quizes[2][3] = JSON.parse(fs.readFileSync('Network+/4-network-security.json'));
 quizes[2][4] = JSON.parse(fs.readFileSync('Network+/5-network-troubleshooting-and-tools.json'));
 
 client.on('message', async message => {
-  let output;
 
 
   if (message.author.bot) return;
-  else if (message.content.toLowerCase().startsWith("!quiz")) {
+
+
+  else if (message.content.toLowerCase().startsWith("!help")) {
+
+    const menuEmbed = {
+      color: 0x0099ff,
+      title: 'SkellyBot Commands',
+      //description: "Help Menu",
+      thumbnail: {
+        url: 'https://i.kym-cdn.com/entries/icons/original/000/017/613/1426467217270.jpg',
+      },
+      fields: [],
+
+    };
+
+    menuEmbed.fields = helpMenu.fields;
+    // for (field in helpMenu.fields) {
+    //   menuEmbed.fields.push(field);
+    // }
+
+    message.channel.send({ embed: menuEmbed });
+  }
+
+
+  else if (message.content.toLowerCase().startsWith("!network+")) {
     QuizMenu.start(message, QuizMenuData, state).then(() => {
       Quiz.start(message, quizes, state);
     });
+  }
 
-  }
-  else if (message.content.toLowerCase().startsWith("!help")) {
-    output = "Here is a list of all available commands:\n";
-    for (m in helpMenu) { output += (m + "\n") }
-    message.reply(output);
-  }
+
   else if (message.content.toLowerCase().startsWith("!nuke")) {
     async function nuke() {
       message.channel.bulkDelete(100).then(() => {
@@ -65,28 +78,28 @@ client.on('message', async message => {
     nuke();
   }
 
-  // switch (message.content.toLocaleLowerCase()) {
+
+  else if (message.content.toLowerCase().startsWith("!ping")) {
+    message.reply('Pong!');
+  }
 
 
-  //   case "!help":
+  else if (message.content.toLowerCase().startsWith("!quiz")) {
+    QuizMenu.start(message, QuizMenuData, state).then(() => {
+      Quiz.start(message, quizes, state);
+    });
 
-  //   case "!quiz":
+  }
 
-  //     //QuizMenu.quizSelector(msg, QuizMenuData, state);
 
-  //     //QuizMenu.quizSelector(msg, QuizMenuData, state);
-  //     //      promise.then(Quiz.start(msg, quizes, state));
-  //     break;
-  //   case "!ping":
-  //     message.reply('Pong!');
-  //     break;
-  //   case "!state":
-  //     message.reply(JSON.stringify(state));
-  //     break;
-  //   case "!nuke":
+  else if (message.content.toLowerCase().startsWith("!zalgo")) {
+    message.channel.send("Type the arcane words that will be used to summon Zalgo");
+    const filter = m => m.author.id === message.author.id;
+    const reply = await message.channel.awaitMessages(filter, { max: 1, time: 10000, errors: ['time'] });
+    const ans = reply.first().content;
+    const z = Zalgo.heComes(ans);
+    message.channel.send(z);
+  }
 
-  //     break
-  //   default:
-  //   // code block
-  // }
+
 });
