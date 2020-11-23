@@ -3,9 +3,12 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const privateKey = process.env.PRIVATE_KEY;
-const QuizMenu = require(__dirname + "/quizMenu.js");
-const QuizMenuData = JSON.parse(fs.readFileSync('quizMenu.json'));
+
+
 const Quiz = require(__dirname + "/quiz.js");
+const QuizMenuData = JSON.parse(fs.readFileSync('menu_networkplus.json'));
+const QuizMenu = require(__dirname + "/quizMenu.js");
+
 const helpMenu = JSON.parse(fs.readFileSync('helpMenu.json'));
 const Zalgo = require(__dirname + "/zalgo.js");
 client.login(privateKey);
@@ -15,9 +18,9 @@ client.on('ready', () => {
 });
 
 var state = {
+  quiz: 0,
   chapter: 0,
   section: "1.1",
-  card: 0,
   data: [],
   color: ""
 };
@@ -54,20 +57,9 @@ client.on('message', async message => {
     };
 
     menuEmbed.fields = helpMenu.fields;
-    // for (field in helpMenu.fields) {
-    //   menuEmbed.fields.push(field);
-    // }
 
     message.channel.send({ embed: menuEmbed });
   }
-
-
-  else if (message.content.toLowerCase().startsWith("!network+")) {
-    QuizMenu.start(message, QuizMenuData, state).then(() => {
-      Quiz.start(message, quizes, state);
-    });
-  }
-
 
   else if (message.content.toLowerCase().startsWith("!nuke")) {
     async function nuke() {
@@ -78,19 +70,15 @@ client.on('message', async message => {
     nuke();
   }
 
-
   else if (message.content.toLowerCase().startsWith("!ping")) {
     message.reply('Pong!');
   }
 
-
   else if (message.content.toLowerCase().startsWith("!quiz")) {
-    QuizMenu.start(message, QuizMenuData, state).then(() => {
-      Quiz.start(message, quizes, state);
-    });
+    console.log(quizes[2][0])//All of the data needs to be restructured so that it can be accessed as quizes[2][0][0]. Need to split all sectiosn into their own files most likely. 
+    Quiz.quizSelector(message, QuizMenuData, state, quizes);
 
   }
-
 
   else if (message.content.toLowerCase().startsWith("!zalgo")) {
     message.channel.send("Type the arcane words that will be used to summon Zalgo");
