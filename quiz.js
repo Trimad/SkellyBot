@@ -1,4 +1,4 @@
-async function quizSelector(msg, json, state, quizes) {
+async function quizSelector(msg, json, state, quizBank) {
 
     const menuEmbed = {
         color: 0x0099ff,
@@ -10,8 +10,8 @@ async function quizSelector(msg, json, state, quizes) {
         fields: [],
     };
     //Push all of the fields to the field array
-    json["quiz"].forEach(element => {
-        menuEmbed.fields.push(element.menu);
+    json.forEach(element => {
+        menuEmbed.fields.push(element.fields);
     });
     //Then send the menu embed to the user
     msg.channel.send({ embed: menuEmbed }).then(() => {
@@ -31,7 +31,7 @@ async function quizSelector(msg, json, state, quizes) {
     });
 }
 
-async function chapterSelector(msg, json, state, quizes) {
+async function chapterSelector(msg, json, state, quizBank) {
     const menuEmbed = {
         color: 0x0099ff,
         title: 'Select Chapter',
@@ -42,8 +42,8 @@ async function chapterSelector(msg, json, state, quizes) {
         fields: [],
     };
     //Push all of the fields to the field array
-    json["quiz"][state.quiz].chapters.forEach(element => {
-        menuEmbed.fields.push(element.menu);
+    json[state.quiz].chapters.forEach(element => {
+        menuEmbed.fields.push(element.fields);
     });
     //Then send the menu embed to the user
     msg.channel.send({ embed: menuEmbed }).then(() => {
@@ -61,7 +61,7 @@ async function chapterSelector(msg, json, state, quizes) {
 }
 
 
-async function sectionSelector(msg, json, state, quizes) {
+async function sectionSelector(msg, json, state, quizBank) {
     const menuEmbed = {
         color: 0x0099ff,
         title: 'Select Chapter',
@@ -72,8 +72,8 @@ async function sectionSelector(msg, json, state, quizes) {
         fields: [],
     };
     //Push all of the fields to the field array
-    json["quiz"][state.quiz].chapters[state.chapter].sections.forEach(element => {
-        menuEmbed.fields.push(element.menu);
+    json[state.quiz].chapters[state.chapter].sections.forEach(element => {
+        menuEmbed.fields.push(element.fields);
     });
     //Then send the menu embed to the user
     msg.channel.send({ embed: menuEmbed }).then(() => {
@@ -90,10 +90,10 @@ async function sectionSelector(msg, json, state, quizes) {
 
 }
 
-async function start(msg, json, state, quizes) {
-    console.log(quizes);
-    var data = quizes[state.quiz][state.chapter][state.section];
-    
+async function start(msg, json, state, quizBank) {
+
+    var data = quizBank[state.quiz][state.chapter][state.section];
+
     data.length = 3;
     var score = 0;
     for await (const element of data) {
@@ -103,7 +103,7 @@ async function start(msg, json, state, quizes) {
         const filter = m => m.author.id === msg.author.id;
         const answer = await msg.channel.awaitMessages(filter, { max: 1, time: 10000, errors: ['time'] });
         const ans = answer.first().content;
-        console.log(ans);
+
         if (ans.toLowerCase() === correctAnswer.toLowerCase()) {
             msg.channel.send("You are correct, the answer is A!");
             score++;

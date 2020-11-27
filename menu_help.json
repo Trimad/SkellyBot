@@ -6,8 +6,8 @@
             "inline": false
         },
         {
-            "name": "!network+",
-            "value": "Launches the test module for the CompTIA Network+ certification",
+            "name": "!quiz",
+            "value": "Launches the test module for the CompTIA certifications.",
             "inline": false
         },
         {
