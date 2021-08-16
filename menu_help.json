@@ -21,6 +21,11 @@
             "inline": false
         },
         {
+            "name": "!url",
+            "value": "Returns the URL needed to add this bot to a new Discord server.",
+            "inline": false
+        },
+        {
             "name": "!zalgo",
             "value": "s̋ͪ̓ ҉̨̡̗u̒͑̂ ҉͝ ҉̷͟͞m̔̏͂mͧ̆ͪ ҉̨̧͜ö͊̑ ҉͡ ҉͎̬͈ńͫ̂ ̿̌̑ ҉̛̕ ҉̸͜͠t͆͒̓ ҉̵̶̡ ҉ ҉̤̤̝h̿͑ͦ ҉̸̢͜e̊͌̾ ҉̛͈͝ ́͗ͮ ҉̧́͟d̀ͦͪa͑ͪͬ ҉̯̳̕r͆̎̍ ҉̵̕͜kͮ͒̒ ҉̤́͞ ͛͂̉ ҉̨̡̀l͂ͮ̋o͛̔̚ ҉͢͟͟rͣͤ͌ ҉̪͖̝dͬ͗̈",
             "inline": false
