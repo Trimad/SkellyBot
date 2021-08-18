@@ -7,8 +7,8 @@ const token = process.env.TOKEN;
 const Quiz = require(__dirname + "/quiz.js");
 const QuizMenuData = JSON.parse(fs.readFileSync('menu_quiz.json'));
 
-const helpMenu = JSON.parse(fs.readFileSync('menu_help.json'));
-const Zalgo = require(__dirname + "/zalgo.js");
+
+
 client.login(token);
 
 client.on('ready', () => {
@@ -46,19 +46,7 @@ client.on('message', commandHandler);
 //   if (message.author.bot) return;
 
 
-//   else if (message.content.toLowerCase().startsWith("!help")) {
-//     const menuEmbed = {
-//       color: 0x0099ff,
-//       title: 'SkellyBot Commands',
-//       //description: "Help Menu",
-//       thumbnail: {
-//         url: 'https://i.kym-cdn.com/entries/icons/original/000/017/613/1426467217270.jpg',
-//       },
-//       fields: [],
-//     };
-//     menuEmbed.fields = helpMenu.fields;
-//     message.channel.send({ embed: menuEmbed });
-//   }
+
 
 //   else if (content[0] === "!nuke") {
 //     async function nuke() {
@@ -71,9 +59,7 @@ client.on('message', commandHandler);
 //     nuke();
 //   }
 
-//   else if (message.content.toLowerCase().startsWith("!ping")) {
-//     message.reply('Pong!');
-//   }
+
 
 //   else if (content[0] === "!quiz") {
 //     const q = (content[1]) ? content[1] : false;
