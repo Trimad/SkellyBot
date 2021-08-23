@@ -1,10 +1,11 @@
+console.clear();
 const { Client, Collection } = require('discord.js');
 const fs = require('fs');
 const client = new Client({
     intents: 32767,
 });
 
-client.commands = new Collection();
+client.commands = new Collection();//Global variable
 
 require('dotenv').config();
 

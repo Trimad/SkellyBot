@@ -1,25 +1,25 @@
-console.clear();
-const dotenv = require('dotenv').config();
-const fs = require('fs');
-const { Client, Collection } = require('discord.js');
+// console.clear();
+// const dotenv = require('dotenv').config();
+// const fs = require('fs');
+// const { Client, Collection } = require('discord.js');
 
-const token = process.env.TOKEN;
-const guildID = process.env.GUILD_ID;
+// const token = process.env.TOKEN;
+// const guildID = process.env.GUILD_ID;
 
-const client = new Client({
-  intents: 32767,
-});
+// const client = new Client({
+//   intents: 32767,
+// });
 
-client.commands = new Collection();
+// client.commands = new Collection();
 
-client.login(token);
+// client.login(token);
 
-const commandHandler = require('../commands');
-client.on('messageCreate', commandHandler);
+// const commandHandler = require('../commands');
+// client.on('messageCreate', commandHandler);
 
-client.on("ready", () =>
-    console.log(`${client.user.tag} is up and ready to go!`)
-);
+// client.on("ready", () =>
+//     console.log(`${client.user.tag} is up and ready to go!`)
+// );
 
 
 

@@ -11,7 +11,7 @@ module.exports = (client) => {
             console.log(commandFiles);
             for (const file of commandFiles) {
                 const command = require(`../commands/${folder}/${file}`);
-                client.commands.set(command.data.name,command);
+                client.commands.set(command.data.name, command);
                 client.commandArray.push(command.data.toJSON());
             }
         }
@@ -21,12 +21,10 @@ module.exports = (client) => {
         (async () => {
             try {
                 console.log('Started refreshing application (/) commands.');
-
                 await rest.put(
                     Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
                     { body: client.commandArray },
                 );
-
                 console.log('Successfully reloaded application (/) commands.');
             } catch (error) {
                 console.error(error);
