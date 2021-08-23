@@ -2,14 +2,19 @@
   "name": "skellybot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node src/bot.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.4.1",
-    "dotenv": "^8.2.0"
+    "@discordjs/builders": "^0.5.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.22.0",
+    "discord.js": "^13.2.0-dev.1629288463.d6e6244",
+    "dotenv": "^8.2.0",
+    "glob": "^7.1.7",
+    "util": "^0.12.4"
   }
 }
