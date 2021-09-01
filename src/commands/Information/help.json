@@ -5,8 +5,13 @@
         "inline": false
     },
     {
+        "name": "/info",
+        "value": "Can return information about a user or the server. Supports subcommands.",
+        "inline": false
+    },
+    {
         "name": "/quiz",
-        "value": "🛠️ Launches the test module for the CompTIA certifications.",
+        "value": "🛠️ Launches the quiz module for CompTIA certifications.",
         "inline": false
     },
     {
