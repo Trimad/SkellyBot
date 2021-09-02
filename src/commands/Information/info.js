@@ -36,16 +36,27 @@ module.exports = {
                         //{ name: `Bot`, value: `${user.bot}`, inline: true },
                         //{ name: `\u200B`, value: `\u200B`, inline: true }
                     )
-                    .setImage(user.displayAvatarURL({ dynamic: true, size: 512}))
+                    .setImage(user.displayAvatarURL({ dynamic: true, size: 512 }))
                     .setTimestamp()
                     .setColor("#FF0000")
                     .setFooter(client.user.tag, client.user.displayAvatarURL());
 
                 //await interaction.reply(`Username: ${user.username}\nID: ${user.id}`)
-                await interaction.reply({ embeds: [userEmbed]});
+                await interaction.reply({ embeds: [userEmbed] });
             }
             else {
-                await interaction.reply(`Your Username: ${interaction.user.username}\nYour ID: ${interaction.user.id}`);
+                const userEmbed = new MessageEmbed()
+                    .addFields(
+                        { name: 'Username', value: `${interaction.user.username}`, inline: true },
+                        { name: `Discriminator`, value: `${interaction.user.discriminator}`, inline: true },
+                        { name: `Tag`, value: `${interaction.user.tag}`, inline: true }
+                    )
+                    .setImage(interaction.user.displayAvatarURL({ dynamic: true, size: 512 }))
+                    .setTimestamp()
+                    .setColor("#FF0000")
+                    .setFooter(client.user.tag, client.user.displayAvatarURL());
+
+                await interaction.reply({ embeds: [userEmbed] });
             }
         }
         else if (interaction.options.getSubcommand() === "server") {
