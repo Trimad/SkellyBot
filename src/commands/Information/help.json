@@ -1,5 +1,10 @@
 [
     {
+        "name": "/donate",
+        "value": "Support this project by donating to one of these crypto wallets!",
+        "inline": false
+    },
+    {
         "name": "/help",
         "value": "You're looking at it.",
         "inline": false

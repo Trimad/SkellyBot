@@ -42,7 +42,7 @@ module.exports = {
                     .setFooter(client.user.tag, client.user.displayAvatarURL());
 
                 //await interaction.reply(`Username: ${user.username}\nID: ${user.id}`)
-                await interaction.reply({ embeds: [userEmbed] });
+                await interaction.reply({ embeds: [userEmbed], ephemeral: true });
             }
             else {
                 const userEmbed = new MessageEmbed()
@@ -56,11 +56,23 @@ module.exports = {
                     .setColor("#FF0000")
                     .setFooter(client.user.tag, client.user.displayAvatarURL());
 
-                await interaction.reply({ embeds: [userEmbed] });
+                await interaction.reply({ embeds: [userEmbed], ephemeral: true });
             }
         }
         else if (interaction.options.getSubcommand() === "server") {
-            await interaction.reply(`Server name: ${interaction.guild.name}\nTotal members: ${interaction.guild.memberCount}`);
+
+            const serverEmbed = new MessageEmbed()
+                .addFields(
+                    { name: 'Server Name', value: `${interaction.guild.name}`, inline: true },
+                    { name: `Total Members`, value: `${interaction.guild.memberCount}`, inline: true },
+                )
+                .setImage(interaction.guild.iconURL({ dynamic: true, size: 512 }))
+                .setTimestamp()
+                .setColor("#FF0000")
+                .setFooter(client.user.tag, client.user.displayAvatarURL());
+
+            await interaction.reply({ embeds: [serverEmbed], ephemeral: true });
+
         }
     },
 };
