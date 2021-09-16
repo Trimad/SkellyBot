@@ -74,5 +74,20 @@ module.exports = {
             await interaction.reply({ embeds: [serverEmbed], ephemeral: true });
 
         }
+        else if (interaction.options.getSubcommand() === "skellybot") {
+
+            const serverEmbed = new MessageEmbed()
+                .addFields(
+                    { name: 'Add this bot to a new server', value: `https://discord.com/api/oauth2/authorize?client_id=876641338135822387&permissions=8&scope=bot%20applications.commands`, inline: true },
+                    { name: 'Skellybot info 2', value: `temp`, inline: true },
+                )
+                .setImage(client.user.tag({ dynamic: true, size: 512 }))
+                .setTimestamp()
+                .setColor("#FF0000")
+                .setFooter(client.user.tag, client.user.displayAvatarURL());
+
+            await interaction.reply({ embeds: [serverEmbed], ephemeral: true });
+
+        }
     },
 };

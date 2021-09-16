@@ -4,7 +4,7 @@ const { MessageEmbed, MessageAttachment } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('donate')
-        .setDescription('Donate to my crypto wallet!')
+        .setDescription('Support this project with crypto!')
         .addSubcommand(subcommand =>
             subcommand
                 .setName("bitcoin")
@@ -26,7 +26,7 @@ module.exports = {
                 .setTitle("Don't have a crypto wallet? Join Coinbase!")
                 .setURL("https://www.coinbase.com/join/madden_52")
                 .addFields(
-                    { name: 'BTC Address', value: '3DJkFM1fZBsrP5aJkrn7RM7b5qjzD4e2U2', inline: false },
+                    { name: 'BTC Address', value: '3DJkFM1fZBsrP5aJkrn7RM7b5qjzD4e2U2', inline: false, ephemeral: false },
                 )
                 .setImage('attachment://bitcoin.png')
                 .setTimestamp()
@@ -41,7 +41,7 @@ module.exports = {
                 .setTitle("Don't have a crypto wallet? Join Coinbase!")
                 .setURL("https://www.coinbase.com/join/madden_52")
                 .addFields(
-                    { name: 'DOGE Address', value: 'DEpUXLyVNqCTPRBpKp3vkJMNdK8iA1Y8pP', inline: false },
+                    { name: 'DOGE Address', value: 'DEpUXLyVNqCTPRBpKp3vkJMNdK8iA1Y8pP', inline: false, ephemeral: false },
                 )
                 .setImage('attachment://dogecoin.png')
                 .setTimestamp()
@@ -56,10 +56,9 @@ module.exports = {
                 .setTitle("Don't have a crypto wallet? Join Coinbase!")
                 .setURL("https://www.coinbase.com/join/madden_52")
                 .addFields(
-                    { name: 'ETH Address', value: '0x156e52753577595A8b029f37ca3bC3dd698a27BE', inline: false },
+                    { name: 'ETH Address', value: '0x156e52753577595A8b029f37ca3bC3dd698a27BE', inline: false, ephemeral: false },
                 )
                 .setImage('attachment://ethereum.png')
-
                 .setTimestamp()
                 .setColor("#FF0000")
                 .setFooter(client.user.tag, client.user.displayAvatarURL());
