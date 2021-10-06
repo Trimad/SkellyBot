@@ -1,6 +1,6 @@
 [
     {
-        "name": "/donate",
+        "name": "/donate crypto:",
         "value": "Support this project by donating to one of these crypto wallets!",
         "inline": false
     },
@@ -10,8 +10,8 @@
         "inline": false
     },
     {
-        "name": "/info",
-        "value": "Can return information about a user or the server. Supports subcommands.",
+        "name": "/info target:",
+        "value": "Get info on a target.",
         "inline": false
     },
     {
@@ -30,13 +30,8 @@
         "inline": false
     },
     {
-        "name": "/url",
-        "value": "Returns the URL needed to add this bot to a new Discord server.",
-        "inline": false
-    },
-    {
-        "name": "/zalgo",
-        "value": "🛠️ s̋ͪ̓ ҉̨̡̗u̒͑̂ ҉͝ ҉̷͟͞m̔̏͂mͧ̆ͪ ҉̨̧͜ö͊̑ ҉͡ ҉͎̬͈ńͫ̂ ̿̌̑ ҉̛̕ ҉̸͜͠t͆͒̓ ҉̵̶̡ ҉ ҉̤̤̝h̿͑ͦ ҉̸̢͜e̊͌̾ ҉̛͈͝ ́͗ͮ ҉̧́͟d̀ͦͪa͑ͪͬ ҉̯̳̕r͆̎̍ ҉̵̕͜kͮ͒̒ ҉̤́͞ ͛͂̉ ҉̨̡̀l͂ͮ̋o͛̔̚ ҉͢͟͟rͣͤ͌ ҉̪͖̝dͬ͗̈",
+        "name": "/zalgo input: up: down: mid:",
+        "value": "input: Enter a String to corrupt.\r\nup: Enter an Integer upward corruption value.\r\ndown: Enter an Integer downward corruption value.\r\nmid: Enter an Integer midward corruption value.",
         "inline": false
     }
 ]

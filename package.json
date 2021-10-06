@@ -4,7 +4,7 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "test": "node src/bot.js"
+    "dev": "nodemon src/bot.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,10 @@
     "dotenv": "^8.2.0",
     "glob": "^7.1.7",
     "install": "^0.13.0",
+    "node-fetch": "^3.0.0",
     "util": "^0.12.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
