@@ -6,6 +6,7 @@ const client = new Client({
 });
 
 client.commands = new Collection();//Global variable
+client.buttons = new Collection();//Global variable
 
 require('dotenv').config();
 
@@ -20,5 +21,6 @@ const commandFolders = fs.readdirSync('./src/commands');
     }
     client.handleEvents(eventFiles, "./src/events");
     client.handleCommands(commandFolders, "./src/commands");
+    client.handleButtons();
     client.login(process.env.TOKEN);
 })();
